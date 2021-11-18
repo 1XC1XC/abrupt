@@ -9,14 +9,18 @@ func Bool() bool {
 func Str(arguments ...interface{}) string {
 	Length, Letters := 5, false
 
-	for i,v := range arguments {
-		switch i {
-			case 0:
-				Length = v.(int)
-			case 1:
-				Letters = v.(bool)
+	if len(arguments) == 1 && arguments[0] == true {
+		Letters = true
+	} else {
+		for i,v := range arguments {
+			switch i {
+				case 0:
+					Length = v.(int)
+				case 1:
+					Letters = v.(bool)
+			}
 		}
-	}
+	}	
 	
 	var Range []int
 
