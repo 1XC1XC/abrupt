@@ -9,6 +9,7 @@ import (
 	"encoding/hex"
 )
 
+
 func digest(encode string, data []byte) string {
 	var result string
 	switch encode {

@@ -1,7 +1,6 @@
 package File 
 
 import "os"
-)
 
 func Exists(arguments ...interface{}) interface{} {
 	var Size int = len(arguments)
