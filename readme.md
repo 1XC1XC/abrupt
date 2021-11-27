@@ -63,6 +63,10 @@ File.Read("./Directory/B.txt") // File String (World)
 File.Exists("./Directory") // (true) true/false depending on the presence in directory
 File.Exists("./Directory", true) // (folder) while second parameter is true returns the type
 File.Exists("./Directory/A.txt", true) // (file)
+
+File.Remove("./Directory/A.txt") // (true) output is true after running accurately
+File.Remove("./Directory") // (true)
+File.Remove("./File") // (false) (assuming there is no file/directory present there)
 ```
 
 String
