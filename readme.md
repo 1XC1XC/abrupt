@@ -46,6 +46,8 @@ Crypto.Hex.Encode("Hello World!") // Base16 Encoding (48656c6c6f20576f726c6421)
 Crypto.SHA512("Hello World!") // SHA512 Hash (861844d6704e8573fec34d...)
 Crypto.SHA256("Hello World!") // SHA256 Hash (7f83b1657ff1fc53b92dc1...)
 Crypto.MD5("Hello World!") // MD5 Hash (ed076287532e86365e841e92bfc5...)
+
+Crypto.Morse.Encode("Hello World!") // .... . .-.. .-.. ---  .-- --- .-. .-.. -.. -.-.--
 ```
 
 File
