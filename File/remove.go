@@ -2,26 +2,14 @@ package File
 
 import "os"
 
-// Reasonably wouldn't require multiple functions, but for consistency, it will retain.
-
 func RemoveFile(title string) bool {
 	v := os.Remove(title)
-
-	if v != nil {
-		return false
-	}
-
-	return true
+	return v != nil
 }
 
 func RemoveFolder(title string) bool {
 	v := os.RemoveAll(title)
-
-	if v != nil {
-		return false
-	}
-
-	return true
+	return v != nil
 }
 
 func Remove(title string) bool {
@@ -36,6 +24,4 @@ func Remove(title string) bool {
 	} else {
 		return RemoveFolder(title)
 	}
-	
-	return false
 }

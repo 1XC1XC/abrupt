@@ -1,9 +1,13 @@
 ## abrupt
-	go get -d github.com/1XC1XC/abrupt
 	
-Import
+Imports
 ```golang
-// WIP
+import (
+	"github.com/1XC1XC/abrupt/Crypto"
+	"github.com/1XC1XC/abrupt/File"
+	"github.com/1XC1XC/abrupt/Rand"
+	"github.com/1XC1XC/abrupt/String"
+)
 ```
 
 Random
@@ -39,6 +43,11 @@ Rand.Array([]interface{}{1, "b", true}) // Random Element (1, b, true)
 
 Crypto
 ```golang
+Encoded := Crypto.AES.Encode("data", "key") // Default: Base64
+fmt.Println("AES Encoded:", Encoded["Text"]) // AES Encoded: JSrkTRWT3VKnzABBclRZqFn37PjNdWeOvPKiFVYjvn4=
+Decoded := Crypto.AES.Decode(Encoded)
+fmt.Println("AES Decoded:", Decoded) // AES Decoded: data
+
 Crypto.Base64.Encode("Hello World!") // Base64 Encoding (YXNkZg==)
 Crypto.Base32.Encode("Hello World!") // Base32 Encoding (JBSWY3DPEBLW64TMMQQQ====)
 Crypto.Hex.Encode("Hello World!") // Base16 Encoding (48656c6c6f20576f726c6421)

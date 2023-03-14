@@ -20,7 +20,7 @@ var MCR = func() map[string]string {
 
 type M struct {}
 
-func (_ M) Encode(text string) string {
+func (M) Encode(text string) string {
 	var out string
 	for _, v := range text {
 		out += MC[string(unicode.ToLower(v))] + " "
@@ -28,7 +28,7 @@ func (_ M) Encode(text string) string {
 	return strings.TrimSuffix(out, " ")
 }
 
-func (_ M) Decode(text string) string {
+func (M) Decode(text string) string {
 	var out string
 	for _, v := range strings.Split(text, " ") {
 		if v == "" {

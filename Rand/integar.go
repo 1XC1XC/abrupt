@@ -1,6 +1,8 @@
 /*
 	I don't know if this is a poor usage I believe there probably is
 	a more reliable method to writing this section. ( I'm bad at compiled languages )
+	
+	[time is fast]
 */
 
 package Rand
@@ -14,7 +16,7 @@ import (
 
 
 func init() {
-	rand.Seed(time.Now().UnixNano())
+	rand.NewSource(time.Now().UnixNano())
 }
 
 func construct(arguments []int) (int, int) {

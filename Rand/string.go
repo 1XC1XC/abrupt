@@ -3,7 +3,7 @@ package Rand
 import "strings"
 
 func Bool() bool {
-	return Int(1)==1
+	return Int(1) == 1
 }
 
 func Str(arguments ...interface{}) string {
