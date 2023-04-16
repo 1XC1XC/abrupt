@@ -43,10 +43,15 @@ Rand.Array([]interface{}{1, "b", true}) // Random Element (1, b, true)
 
 Crypto
 ```golang
-Encoded := Crypto.AES.Encode("data", "key") // Default: Base64
+Encoded := Crypto.AES.Encode("Hello, World!", "key") // Default: Base64
 fmt.Println("AES Encoded:", Encoded["Text"]) // AES Encoded: JSrkTRWT3VKnzABBclRZqFn37PjNdWeOvPKiFVYjvn4=
 Decoded := Crypto.AES.Decode(Encoded)
-fmt.Println("AES Decoded:", Decoded) // AES Decoded: data
+fmt.Println("AES Decoded:", Decoded) // AES Decoded: Hello, World!
+
+Encoded := Crypto.RSA.Encode("Hello, World!") // Default: Base64, Key Size: 4096
+fmt.Println("RSA Encoded:", Encoded["Text"]) // RSA Encoded: pboYpy2MEoW1nUwlRhYysVGtQ8HKHIN3mbLZMELGw0...
+Decoded := Crypto.RSA.Decode(Encoded)
+fmt.Println("RSA Decoded:", Decoded) // RSA Decoded: Hello, World!
 
 Crypto.Base64.Encode("Hello World!") // Base64 Encoding (YXNkZg==)
 Crypto.Base32.Encode("Hello World!") // Base32 Encoding (JBSWY3DPEBLW64TMMQQQ====)

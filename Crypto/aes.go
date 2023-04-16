@@ -1,7 +1,6 @@
 package Crypto
 
 import (
-	"fmt"
 	"io"
 	"strings"
 	"crypto/rand"
@@ -18,25 +17,25 @@ func (aes128) Encode(args ...interface{}) map[string]string {
 	if size == 3 {
 		Encoding = strings.ToLower(args[2].(string))
 	} else if size < 2 || size > 3 {
-		fmt.Println("aes-abrupt: AES.Encode invalid number of arguments")
+		panic("aes-abrupt: AES.Encode invalid number of arguments")
 	}
 
 	c, err := aes.NewCipher(key)
 
 	if err != nil {
-        fmt.Println(err)
+        panic(err)
     }
 	
 	gcm, err := cipher.NewGCM(c)
 
     if err != nil {
-        fmt.Println(err)
+        panic(err)
     }
 	
     nonce := make([]byte, gcm.NonceSize())
 
 	if _, err = io.ReadFull(rand.Reader, nonce); err != nil {
-        fmt.Println(err)
+        panic(err)
     }
 	
 	out := string(gcm.Seal(nonce, nonce, text, nil))
@@ -70,7 +69,7 @@ func (aes128) Decode(args ...interface{}) string {
 			Encoding = args[2].(string)
 		}
 	} else {
-		fmt.Println("aes-abrupt: AES.Decode invalid number of arguments")
+		panic("aes-abrupt: AES.Decode invalid number of arguments")
 	}
 
 	switch(Encoding) {
@@ -86,23 +85,23 @@ func (aes128) Decode(args ...interface{}) string {
 	
 	c, err := aes.NewCipher(key)
     if err != nil {
-        fmt.Println(err)
+        panic(err)
     }
 
     gcm, err := cipher.NewGCM(c)
     if err != nil {
-        fmt.Println(err)
+        panic(err)
     }
 
     nonceSize := gcm.NonceSize()
     if len(text) < nonceSize {
-        fmt.Println(err)
+        panic(err)
     }
 
     nonce, text := text[:nonceSize], text[nonceSize:]
     out, err := gcm.Open(nil, nonce, text, nil)
     if err != nil {
-        fmt.Println(err)
+        panic(err)
     }
 	
 	return string(out)
